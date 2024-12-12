@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Name validation App By Ganesh Surya</title>
+		<style>
+			*{font-size:40px;}
+			body{background-color:pink;}
+		</style>
+	</head>
+	<body>
+		<center>
+			<form onsubmit="check()">
+				<h1>Welcome App By Ganesh Suryawanshi</h1>
+				<input type="text" placeholder="Enter Name" id="name"/>
+				</br></br>
+				<input type="submit" value="Greet"/>
+			</form>
+			<h2 id="msg"></h2>
+			<script>
+				function check(){
+					event.preventDefault();
+					let name= document.getElementById("name");
+					let msg= document.getElementById("msg");
+					if(name.value ===""){
+						alert("name is Empty");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+
+					if(name.value.trim() ===""){
+						alert("name cannot be blank ");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+					
+					if(! name.value.match(/^[A-Za-z ]+$/)){
+						alert("name should contain only alphabets");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+					
+					let d= new Date();
+					let h= d.getHours();
+					
+					if(h<12) 
+					msg.innerHTML="Good Morning "+name.value;
+
+					else if(h<16) 
+					msg.innerHTML="Good Afternoon "+name.value;
+					
+					else 
+					msg.innerHTML="Good Evening "+name.value;
+
+				}
+			</script>
+		</center>
+	</body>
+</html>
